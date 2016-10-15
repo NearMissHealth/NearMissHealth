@@ -1,13 +1,17 @@
 <div class="container">
+<div class="row center-container">
+    <h1 id="report-title">Report an Incident</h1>
+    <h3 id="report-caption" class="light">Fill out the form below to report an incident or error within your hospital. If you would like to stay anonymous, please leave the name field blank.</h3>
+</div>
 <div class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col m6 s12">
-          <input id="hospital" type="text" class="validate">
+          <input id="hospital" type="text" class="">
           <label for="hospital">Hospital</label>
         </div>
         <div class="input-field col m6 s12">
-          <input id="area" type="text" class="validate">
+          <input id="area" type="text" class="">
           <label for="area">Room / Area</label>
         </div>
       </div>
@@ -18,19 +22,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
-        <select id="emergency" class="materialize-select">
-          <option value="" disabled selected>Choose your option</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-        </select>
-        <label for="emergency">Materialize Select</label>
-        </div>
-      </div>
-      <div class="row">
         <div class="input-field col m6 s12">
-          <input id="name" type="text" class="validate">
+          <input id="name" type="text" class="">
           <label for="name">Name (Optional)</label>
         </div>
         <div class="input-field col m6 s12">
@@ -40,4 +33,13 @@
       </div>
     </form>
   </div>
+<div class="row">
+    <div class="form-buttons">
+      <button class="btn waves-effect waves-light orange">Clear
+      </button>
+      <button class="btn waves-effect waves-light orange right">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+</div>
 </div>
