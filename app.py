@@ -32,7 +32,7 @@ def take_input():
     print("Recieved post request.")
     content = request.json
     db.mvp.insert_one(content)
-    return jsonify("True")
+    return resp
 
 
 @app.route("/api/all_data")
