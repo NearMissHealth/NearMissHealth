@@ -26,7 +26,8 @@ db = client.production
 
 
 @app.route("/api/post_request", methods=['POST'])
-def give_em_something():
+def take_input():
+    resp.headers['Access-Control-Allow-Origin'] = '*'
     print("Recieved post request.")
     content = request.json
     db.mvp.insert_one(content)
@@ -34,16 +35,19 @@ def give_em_something():
 
 
 @app.route("/api/all_data")
-def get_stas():
+def send_response():
+    resp.headers['Access-Control-Allow-Origin'] = '*'
     return jsonify(db.devpost.query.all())
 
 
 @app.route("/")
-def return_info():
+def index():
+    resp.headers['Access-Control-Allow-Origin'] = '*'
     return redirect(url_for('static', filename='index.html'))
 
 # -----------
 # LET IT RUN!
 # -----------
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    print("FLASK RUNNING!")
+    app.run(host='0.0.0.0', port=3000)
