@@ -27,7 +27,8 @@ db = client.production
 
 @app.route("/api/post_request", methods=['POST'])
 def take_input():
-    # content = request.json
+    content = request.get_json()
+    print(content)
     # db.mvp.insert_one(content)
     print("Recieved post request.")
     resp = Response(response="true", status=200,  mimetype="application/json")
