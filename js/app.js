@@ -1,5 +1,48 @@
 var app = angular.module("NearMissApp", ['ngRoute']);
 
+/* 
+ * Scheme / data definition for a post
+ *
+ *      hospital: the name of the hospital (String)
+ *      area: the room, area, or unit of the hospital (String)
+ *      emotion: the feelings of the user (awful, bad, neutral, good, or excellent) (String)
+ *      date: the date and time of the encounter (Date)
+ *      content: the content of the encounter / experience (aka the story) (String)
+ *      name: the name of the user (Optional, String)
+ *      email: the email of the user (Optional, String)
+ */
+
+// Demo data for testing
+var demoData = [
+    {
+        hospital: "St. Mary Extreme Care",
+        area: "Pregancy Ward",
+        emotion: "neutral",
+        date: new Date(),
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis sem nulla, ut egestas ligula fringilla vel. Aenean sollicitudin, mauris eu pretium maximus, lectus augue dapibus neque, pellentesque ullamcorper leo elit non nulla. Nam pellentesque pellentesque tempor. Phasellus gravida magna sed ex sagittis, eu maximus tortor maximus. Nulla nec dapibus.",
+        name: null,
+        email: null
+    },
+    {
+        hospital: "St. Mary Extreme Care",
+        area: "Pregancy Ward",
+        emotion: "neutral",
+        date: new Date(),
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis sem nulla, ut egestas ligula fringilla vel. Aenean sollicitudin, mauris eu pretium maximus, lectus augue dapibus neque, pellentesque ullamcorper leo elit non nulla. Nam pellentesque pellentesque tempor. Phasellus gravida magna sed ex sagittis, eu maximus tortor maximus. Nulla nec dapibus.",
+        name: null,
+        email: null
+    },
+    {
+        hospital: "St. Mary Extreme Care",
+        area: "Pregancy Ward",
+        emotion: "neutral",
+        date: new Date(),
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis sem nulla, ut egestas ligula fringilla vel. Aenean sollicitudin, mauris eu pretium maximus, lectus augue dapibus neque, pellentesque ullamcorper leo elit non nulla. Nam pellentesque pellentesque tempor. Phasellus gravida magna sed ex sagittis, eu maximus tortor maximus. Nulla nec dapibus.",
+        name: null,
+        email: null
+    }
+]
+
 /*
  * Navigation Controller
  */
@@ -40,18 +83,24 @@ app.config(function($routeProvider) {
 /*
  * Home Controller
  */
-app.controller('HomeController', function() {
+app.controller('HomeController', function($scope) {
     
     angular.element(document).ready(function () {
         // Do something on startup
+        $('.collapsible').collapsible();
+        $scope.posts = demoData;
     });
+    
+    $scope.cfl = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     
 });
 
 /*
  * Report Controller
  */
-app.controller('ReportController', function() {
+app.controller('ReportController', function($scope, $http) {
     
     angular.element(document).ready(function () {
         // Do something on startup
@@ -68,6 +117,43 @@ app.controller('ReportController', function() {
             vibrate: true // vibrate the device when dragging clock hand
         });
     });
+    
+    // Logic for clearing fields
+    
+    $scope.clear = function() {
+        
+        $scope.hospital = null;
+        $scope.area = null;
+        $scope.emotion = null;
+        $scope.date = null;
+        $scope.time = null;
+        $scope.content = null;
+        $scope.name = null;
+        $scope.email = null;
+        
+    }
+    
+    $scope.submit = function() {
+        
+        var data = { 
+            hospital: $scope.hospital,
+            area: $scope.area,
+            emotion: $scope.emotion,
+            date: $scope.date,
+            time: $scope.time,
+            content: $scope.content,
+            name: $scope.name,
+            email: $scope.email
+        };
+        
+        console.log(data);
+        
+        var url = "http://52.25.0.31:3000/api/post_request";
+        $http.post(url, data).then(function(res) {
+            console.log(res);
+        })
+        
+    }
     
 });
 

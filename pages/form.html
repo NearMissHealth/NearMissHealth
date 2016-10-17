@@ -7,17 +7,17 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col m6 s12">
-          <input id="hospital" type="text" class="">
+          <input id="hospital" type="text" class="" ng-model="hospital">
           <label for="hospital">Hospital</label>
         </div>
         <div class="input-field col m6 s12">
-          <input id="area" type="text" class="">
+          <input id="area" type="text" class="" ng-model="area">
           <label for="area">Room, Area, or Unit</label>
         </div>
       </div>
       <div class="row">
           <div class="input-field col s12 m4">
-            <select class="icons">
+            <select class="icons" ng-model="emotion">
               <option value="" disabled selected>Choose your experience</option>
               <option value="awful" data-icon="../img/awful.png" class="left circle">Awful</option>
               <option value="bad" data-icon="../img/bad.png" class="left circle">Bad</option>
@@ -28,27 +28,27 @@
             <label>How are you feeling?</label>
           </div>
           <div class="input-field col s12 m4">
-            <input id="date" type="date" class="datepicker">
+            <input id="date" type="date" class="datepicker" ng-model="date">
             <label for="date">Date</label>
           </div>
           <div class="input-field col s12 m4">
-            <input id="time" type="time" class="timepicker">
+            <input id="time" type="time" class="timepicker" ng-model="time">
             <label for="time">Time</label>
           </div>
       </div>
       <div class="row">
         <div class="input-field col m12 s12">
-          <textarea id="problem" class="materialize-textarea"></textarea>
+          <textarea id="problem" class="materialize-textarea" ng-model="content"></textarea>
           <label for="problem">Tell us about your healthcare experience here</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col m6 s12">
-          <input id="name" type="text" class="">
+          <input id="name" type="text" class="" ng-model="name">
           <label for="name">Name (Optional)</label>
         </div>
         <div class="input-field col m6 s12">
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" ng-model="email">
           <label for="email">Email (Optional)</label>
         </div>
       </div>
@@ -56,9 +56,9 @@
   </div>
 <div class="row">
     <div class="form-buttons">
-      <button class="btn waves-effect waves-light orange">Clear
+      <button class="btn waves-effect waves-light orange" ng-click="clear()">Clear
       </button>
-      <button class="btn waves-effect waves-light orange right">Submit
+      <button class="btn waves-effect waves-light orange right" ng-click="submit()">Submit
         <i class="material-icons right">send</i>
       </button>
     </div>
