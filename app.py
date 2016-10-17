@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # Some useful base constants (for URLS and such)
 database = "localhost:27017"
-logging.basicConfig(filename='devpost.log', level=logging.DEBUG)
+logging.basicConfig(filename='prod.log', level=logging.DEBUG)
 
 # The database instance
 client = MongoClient(database)
@@ -39,7 +39,7 @@ def take_input():
 def send_response():
     resp = Response("")
     resp.headers['Access-Control-Allow-Origin'] = '*'
-    return jsonify(db.devpost.query.all())
+    return jsonify(db.mvp.mvp.find({}))
 
 
 @app.route("/")
