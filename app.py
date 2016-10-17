@@ -27,11 +27,11 @@ db = client.production
 
 @app.route("/api/post_request", methods=['POST'])
 def take_input():
-    resp = Response("")
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    print("Recieved post request.")
     content = request.json
     db.mvp.insert_one(content)
+    print("Recieved post request.")
+    resp = jsonify("True")
+    resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
 
