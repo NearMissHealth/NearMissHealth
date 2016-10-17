@@ -39,7 +39,7 @@ def take_input():
 def send_response():
     resp = Response("")
     resp.headers['Access-Control-Allow-Origin'] = '*'
-    return jsonify(db.mvp.mvp.find({}).toArray())
+    return jsonify(list(db.mvp.mvp.find({})))
 
 
 @app.route("/")
