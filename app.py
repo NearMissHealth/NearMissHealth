@@ -27,6 +27,7 @@ db = client.production
 
 @app.route("/api/post_request", methods=['POST'])
 def take_input():
+    resp = Response("")
     resp.headers['Access-Control-Allow-Origin'] = '*'
     print("Recieved post request.")
     content = request.json
@@ -36,12 +37,14 @@ def take_input():
 
 @app.route("/api/all_data")
 def send_response():
+    resp = Response("")
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return jsonify(db.devpost.query.all())
 
 
 @app.route("/")
-def index():
+def home():
+    resp = Response("")
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return redirect(url_for('static', filename='index.html'))
 
