@@ -38,7 +38,7 @@ def take_input():
 
 @app.route("/api/all_data")
 def send_response():
-    content = json.dumps(list(db.mvp.mvp.find({})))
+    content = json.dumps(list(db.mvp.find({})), default=json_util.default)
     resp = resp = Response(
         response=content, status=200,  mimetype="application/json")
     resp.headers['Access-Control-Allow-Origin'] = '*'
