@@ -57,16 +57,9 @@ def home():
 # LET IT RUN!
 # -----------
 if __name__ == "__main__":
-    print(
-        " ______ __      ______  ______  __  __       ______  __  __  __   __  __   __  __  __   __  ______")
-    print("/\  ___/\ \    /\  __ \/\  ___\/\ \/ /      /\  == \/\ \/\ \/\ "-.\ \/\ "-.\ \/\ \/\ "-.\ \/\  ___
-          ")
-    print("\ \  __\ \ \___\ \  __ \ \___  \ \  _"-.    \ \  __ <\ \ \_\ \ \ \- .  \ \ \-.  \ \ \ \ \-.  \ \ \__
-          ")
-    print(" \ \_\  \ \_____\ \_\ \_\/\_____\ \_\ \_\    \ \_\ \_\ \_____\ \_\\"\_\ \_\\"\_\ \_\ \_\\"\_\ \_____")
-    print(
-        "  \/ _ / /_____ /\/_ /\/_ /\/_____ /\/_ /\/_ / /_ / /_ /\/_____ /\/_ / \/_ /\/_ / \/_ /\/_ /\/_ / \/_ /\/_____ /           ")
-    print(
-        "                                                                                                      ")
-    print("")
+    print("RRRRRR  UU   UU NN   NN NN   NN IIIII NN   NN   GGGG ")
+    print("RR   RR UU   UU NNN  NN NNN  NN  III  NNN  NN  GG  GG ")
+    print("RRRRRR  UU   UU NN N NN NN N NN  III  NN N NN GG      ")
+    print("RR  RR  UU   UU NN  NNN NN  NNN  III  NN  NNN GG   GG ")
+    print("RR   RR  UUUUU  NN   NN NN   NN IIIII NN   NN  GGGGGG ")
     app.run(host='0.0.0.0', port=3000)
