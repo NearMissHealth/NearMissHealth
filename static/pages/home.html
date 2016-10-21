@@ -1,48 +1,23 @@
 <div class="home-main">
     
     <div class="center-container">
-        <img id="logo-home" src="../img/logo1.png" />
+        <img id="logo-home" src="/static/img/logofinalwhite.png" />
     </div>
-    <h3 id="logo-caption">
-        Report hospital errors before they have the chance to take a life.
-    </h3>
+    <div>
+        <h3 id="logo-caption">
+            Report hospital errors before they have the chance to take a life.
+        </h3>
+    </div>
     
     <div class="row">
         <div class="home-button-cont">
-            <a class="waves-effect waves-light btn-large" id="report-home" href="#report">Report Something!</a>
+            <a class="waves-effect waves-light btn-large red" id="report-home" ng-click="scrollTo('report')">Report Something!</a>
         </div>
     </div>
     
 </div>
 
-<!-- Begin the content containers >
-    <div class="container">
-        <div class="row">
-            <div class="col s4">
-              <div class="center">
-                <i class="material-icons content-logo orange-text">local_hospital</i>
-                <p class="logo-caption">Notify Hospitals</p>
-                <p class="light center">Let your hospital know of a life threatening or dangerous situation fast and anonymously. You too can help save a life!</p>
-              </div>
-            </div>
-            <div class="col s4">
-              <div class="center">
-                <i class="material-icons content-logo orange-text">receipt</i>
-                <p class="logo-caption">Easy Form Submission</p>
-                <p class="light center">Our form takes less than two minutes to fill out and submit, ensuring that the hospital knows of the situation fast.</p>
-              </div>
-            </div>
-            <div class="col s4">
-              <div class="center">
-                <i class="material-icons content-logo orange-text">timeline</i>
-                <p class="logo-caption">Near Miss History</p>
-                <p class="light center">View reports by other people, and receive a quick glance on how a hospital is doing by viewing its timeline.</p>
-              </div>
-            </div>
-          </div>
-    </div-->
-
-<div class="container">
+<!--div class="container">
   <div class="center-container">
         <h4>Report Feed</h4>
   </div>
@@ -52,4 +27,66 @@
       <div class="collapsible-body"><p>{{post.content}}</p></div>
     </li>
   </ul>
+</div-->
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col s12 m2 airplane-cont">
+            <img class="airplane" src="/static/img/airplane.png" />
+        </div>
+        <div class="col s12 m10 airplane-text-cont">
+            <p class="airplane-text">NearMissHealth seeks to borrow from the success of aviation safety by providing patients, family members, and caregivers a place to anonymously report errors and almost-error ("near misses") that lead to medical tragedies.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel grey" style="padding-bottom: 32px">
+          <span class="white-text">"... If my primary care doctor had referred me to an ear-nose-throat (ENT) specialist instead of brushing my condition off as just another pregnancy-related issue that would resolve on its own, I would have been treated for Sudden Onset Hearing Loss in the critical 24-hr window and may have regained my hearing. But by the time I realized I should have seen an ENT doctor, it was too late, and now I have permanent hearing loss in one ear."<br /><span class="right white-text">- Patient in North Carolina<br /><br /></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    
+<div class="row center-container" id="report">
+    <h1 id="report-title">Report an Incident</h1>
+    <h3 id="report-caption" class="light">Do you have a preventable medical mistake experience that you would like to share? Please type it below. Your submission will be completely anonymous.</h3>
+</div>
+<div class="row">
+    <form class="col s12">
+      <div class="row card-panel">
+        <div class="input-field col m12 s12 red-accent">
+          <textarea id="content" class="materialize-textarea story-field" ng-model="content"></textarea>
+          <label for="content">Tell us about your healthcare experience here</label>
+        </div>
+      </div>
+    </form>
+</div>
+<div class="row">
+    <div class="input-field col s12 m4">
+            <select class="" ng-model="type">
+              <option value="" disabled selected>Type of encounter</option>
+              <option value="website">Website</option>
+              <option value="telephone">Telephone</option>
+              <option value="out">Out-patient</option>
+              <option value="in">In-patient</option>
+              <option value="other">Other</option>
+            </select>
+            <label>Type of encounter</label>
+          </div>
+    <div class="input-field col m8 s12">
+          <input id="hospital" type="text" class="" ng-model="hospital">
+          <label for="hospital">Name of hospital or clinic</label>
+        </div>
+</div>
+<div class="row">
+    <div class="form-buttons">
+      <button class="btn waves-effect waves-light red" ng-click="clear()">Clear
+      </button>
+      <button class="btn waves-effect waves-light red right" ng-click="submit()">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+</div>
 </div>

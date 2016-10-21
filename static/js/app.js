@@ -46,11 +46,16 @@ var demoData = [
 /*
  * Navigation Controller
  */
-app.controller('NavController', function() {
+app.controller('NavController', function($scope, $location, $anchorScroll) {
     
     angular.element(document).ready(function () {
         $(".button-collapse").sideNav();
     });
+    
+    $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+    }
     
 });
 
@@ -83,16 +88,47 @@ app.config(function($routeProvider) {
 /*
  * Home Controller
  */
-app.controller('HomeController', function($scope) {
+app.controller('HomeController', function($scope, $location, $anchorScroll, $http) {
     
     angular.element(document).ready(function () {
         // Do something on startup
         $('.collapsible').collapsible();
+        $('select').material_select();
         $scope.posts = demoData;
     });
     
+    $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+    }
+    
     $scope.cfl = function(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    
+    $scope.clear = function() {
+        
+        $scope.hospital = null;
+        $('select').material_select();
+        $scope.content = null;
+        
+    }
+    
+    $scope.submit = function() {
+        
+        var data = { 
+            hospital: $scope.hospital,
+            emotion: $scope.type,
+            content: $scope.content,
+        };
+        
+        console.log(data);
+        
+        var url = "http://52.25.0.31:3000/api/post_request";
+        $http.post(url, data).then(function(res) {
+            console.log(res);
+        })
+        
     }
     
 });
