@@ -28,10 +28,16 @@ db = client.production
 
 @app.route("/api/post_request", methods=['POST'])
 def take_input():
+    # Sample POST:
+    # {hospital: "HOSPITAL HERE", type: "telephone", content: "TESTING FINAL"}
     content = request.get_json(force=True)
-    print(content)
-    db.mvp.insert_one(content)
-    print("Recieved post request.")
+    submission = {
+        "hospital": content['hospital'],
+        "type": content['type'],
+        "content": content['content']
+    }
+    db.mvp.insert_one(submission)
+    print("Recieved post request and inserted into the DB.")
     resp = Response(response="true", status=200,  mimetype="application/json")
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
@@ -57,9 +63,11 @@ def home():
 # LET IT RUN!
 # -----------
 if __name__ == "__main__":
+    print(" ")
     print("RRRRRR  UU   UU NN   NN NN   NN IIIII NN   NN   GGGG ")
     print("RR   RR UU   UU NNN  NN NNN  NN  III  NNN  NN  GG  GG ")
     print("RRRRRR  UU   UU NN N NN NN N NN  III  NN N NN GG      ")
     print("RR  RR  UU   UU NN  NNN NN  NNN  III  NN  NNN GG   GG ")
     print("RR   RR  UUUUU  NN   NN NN   NN IIIII NN   NN  GGGGGG ")
+    print(" ")
     app.run(host='0.0.0.0', port=3000)
