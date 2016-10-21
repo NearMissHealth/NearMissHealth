@@ -118,7 +118,7 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         
         var data = { 
             hospital: $scope.hospital,
-            emotion: $scope.type,
+            type: $scope.type,
             content: $scope.content,
         };
         
