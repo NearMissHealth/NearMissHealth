@@ -52,9 +52,14 @@ def home():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return redirect(url_for('static', filename='index.html'))
 
+
 # -----------
 # LET IT RUN!
 # -----------
 if __name__ == "__main__":
-    print("FLASK RUNNING!")
+    print("RRRRRR  UU   UU NN   NN NN   NN IIIII NN   NN   GGGG ")
+    print("RR   RR UU   UU NNN  NN NNN  NN  III  NNN  NN  GG  GG ")
+    print("RRRRRR  UU   UU NN N NN NN N NN  III  NN N NN GG      ")
+    print("RR  RR  UU   UU NN  NNN NN  NNN  III  NN  NNN GG   GG ")
+    print("RR   RR  UUUUU  NN   NN NN   NN IIIII NN   NN  GGGGGG ")
     app.run(host='0.0.0.0', port=3000)
