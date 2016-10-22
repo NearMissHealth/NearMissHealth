@@ -16,9 +16,9 @@
 </head>
 <body ng-app="NearMissApp">
 
-<nav>
+<!--nav>
 <div class="nav-wrapper red darken-2" ng-controller="NavController">
-    <!--a href="#home" class="brand-logo"><img id="nav-logo" src="/static/img/logofinal.png" /></a-->
+    <a href="#home" class="brand-logo"><img id="nav-logo" src="/static/img/logofinal.png" /></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
         <li><a href="#home">Home</a></li>
@@ -29,7 +29,7 @@
         <li><a>Contact Us</a></li>
     </ul>
 </div>
-</nav>
+</nav-->
     
     <!-- The place of injection for all pages -->
     <div ng-view id="page-wrapper">
@@ -37,36 +37,15 @@
             <!-- each angular controller applies a different class here -->
     </div>
     
-<footer class="page-footer red darken-3">
+<footer class="page-footer black darken-3">
     <div class="container">
-    <div class="row">
-        <div class="col l6 s12">
-            <h5 class="white-text">Company Bio</h5>
-            <p class="grey-text text-lighten-4">We are a team of people who need to come up with a good couple of sentences for this blurb. Otherwise, it will stay like this, and probably make it through to production.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-            <h5 class="white-text">Resources</h5>
-            <ul>
-                <li><a class="white-text" href="#!">Founders</a></li>
-                <li><a class="white-text" href="#!">Legal</a></li>
-                <li><a class="white-text" href="#!">Terms of Use</a></li>
-            </ul>
-        </div>
-        <div class="col l3 s12">
-            <h5 class="white-text">More Info</h5>
-            <ul>
-                <li><a class="white-text" href="#!">Affiliations</a></li>
-                <li><a class="white-text" href="#!">Contributors</a></li>
-                <li><a class="white-text" href="#!">GitHub</a></li>
-            </ul>
-        </div>
+        <div class="row center white-text">
+            <a class="white-text">Home</a> &nbsp; &nbsp; | &nbsp; &nbsp; <a class="white-text">About Us</a> &nbsp; &nbsp; | &nbsp; &nbsp; <a class="white-text">Contact Us</a>
         </div>
     </div>
-    <div class="footer-copyright">
-        <div class="container">
-            Made by <a class="orange-text text-lighten-2" href="#">NearMissHealth</a>
+    <div class="footer-copyright center">
+        <div class="container orange-text text-lighten-2">
+            &copy; 2016 NearMissHealth.com
         </div>
     </div>
 </footer>
