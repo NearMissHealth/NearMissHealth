@@ -29,16 +29,29 @@ db = client.production
 @app.route("/api/post_request", methods=['POST'])
 def take_input():
     # Sample POST:
-    # {hospital: "HOSPITAL HERE", type: "telephone", content: "TESTING FINAL"}
+    # {
+    #        hospital: $scope.hospital,
+    #        type: $scope.type,
+    #        content: $scope.content,
+    #        permission: $scope.permission
+    # }
     content = request.get_json(force=True)
-    submission = {
-        "hospital": content['hospital'],
-        "type": content['type'],
-        "content": content['content']
-    }
-    db.mvp.insert_one(submission)
-    print("Recieved post request and inserted into the DB.")
-    resp = Response(response="true", status=200,  mimetype="application/json")
+    try:
+        submission = {
+            "hospital": content['hospital'],
+            "type": content['type'],
+            "content": content['content']
+        }
+        db.mvp.insert_one(submission)
+        print("Recieved post request and inserted into the DB.")
+        resp = Response(
+            response="true", status=200,  mimetype="application/json")
+    except:
+        print("Error: ", sys.exc_info()[0])
+        var Status = sys.exc_info()[0]
+        resp = Response(
+            response=Status, status=200,  mimetype="application/json")
+        raise
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
