@@ -64,7 +64,7 @@
     <div class="input-field col s12 m5">
         <p>What was the nature of your healthcare encounter?</p>
         <p>
-          <input name="type" type="radio" id="website" />
+          <input name="type" type="radio" id="website" ng-model="websiteReset"/>
           <label for="website">Website</label>
         </p>
         <p>
@@ -90,7 +90,7 @@
           <input id="hospital" type="text" class="" ng-model="hospital">
           <label for="hospital">Name of hospital or clinic</label>
         <p>
-          <input type="checkbox" id="permission" class="filled-in" />
+          <input type="checkbox" id="permission" class="filled-in" ng-model="permission"/>
           <label for="permission">It's ok to post my story or portions of my story anonymously on this website.</label>
         </p>
             <br />

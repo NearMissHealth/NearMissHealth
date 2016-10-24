@@ -111,6 +111,7 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         $scope.hospital = null;
         $('select').material_select();
         $scope.content = null;
+        $scope.permission = false;
         
     }
     
