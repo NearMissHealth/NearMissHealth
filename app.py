@@ -48,7 +48,7 @@ def take_input():
             response="true", status=200,  mimetype="application/json")
     except:
         print("Error: ", sys.exc_info()[0])
-        var Status = sys.exc_info()[0]
+        status = sys.exc_info()[0]
         resp = Response(
             response=Status, status=200,  mimetype="application/json")
         raise
