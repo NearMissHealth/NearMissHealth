@@ -2,6 +2,7 @@ import logging
 import operator
 import tempfile
 import json
+import sys
 from urllib.request import urlopen
 
 import requests
