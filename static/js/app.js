@@ -95,6 +95,7 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         $('.collapsible').collapsible();
         $('select').material_select();
         $scope.posts = demoData;
+        $scope.showConfirm = false;
     });
     
     $scope.scrollTo = function(id) {
@@ -117,10 +118,13 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
     
     $scope.submit = function() {
         
+        $scope.showConfirm = false;
+        
         var data = { 
             hospital: $scope.hospital,
             type: $scope.type,
             content: $scope.content,
+            permission: $scope.permission
         };
         
         console.log(data);
@@ -129,6 +133,9 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         $http.post(url, data).then(function(res) {
             console.log(res);
         })
+        
+        console.log("Showing success")
+        $scope.showConfirm = true;
         
     }
     
