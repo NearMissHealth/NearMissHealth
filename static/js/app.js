@@ -129,7 +129,7 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         
         console.log(data);
         
-        var url = "http://52.25.0.31:3000/api/post_request";
+        var url = "https://52.25.0.31:3000/api/post_request";
         $http.post(url, data).then(function(res) {
             console.log(res);
         })
