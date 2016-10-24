@@ -5,13 +5,13 @@
     </div>
     <div>
         <h3 id="logo-caption">
-            Report hospital errors before they have the chance to take a life.
+            Report preventable medical errors and close calls before they have a chance to take a life.
         </h3>
     </div>
     
     <div class="row">
         <div class="home-button-cont">
-            <a class="waves-effect waves-light btn-large red" id="report-home" ng-click="scrollTo('report')">Report Something!</a>
+            <a class="waves-effect waves-light btn-large red" id="report-home" ng-click="scrollTo('report')">Tell us what happened</a>
         </div>
     </div>
     
@@ -42,15 +42,12 @@
     
     <div class="row">
       <div class="col s12">
-        <div class="card-panel grey" style="padding-bottom: 32px">
-          <span class="white-text">"... If my primary care doctor had referred me to an ear-nose-throat (ENT) specialist instead of brushing my condition off as just another pregnancy-related issue that would resolve on its own, I would have been treated for Sudden Onset Hearing Loss in the critical 24-hr window and may have regained my hearing. But by the time I realized I should have seen an ENT doctor, it was too late, and now I have permanent hearing loss in one ear."<br /><span class="right white-text">- Patient in North Carolina<br /><br /></span>
-          </span>
-        </div>
+          <blockquote >... If my primary care doctor had referred me to an ear-nose-throat (ENT) specialist instead of brushing my condition off as just another pregnancy-related issue that would resolve on its own, I would have been treated for Sudden Onset Hearing Loss in the critical 24-hr window and may have regained my hearing. But by the time I realized I should have seen an ENT doctor, it was too late, and now I have permanent hearing loss in one ear. <br /><b class="right">- Patient in North Carolina</b></blockquote>
       </div>
     </div>
     
 <div class="row center-container" id="report">
-    <h1 id="report-title">Report an Incident</h1>
+    <h1 id="report-title">Tell Us What Happened</h1>
     <h3 id="report-caption" class="light">Do you have a preventable medical mistake experience that you would like to share? Please type it below. Your submission will be completely anonymous.</h3>
 </div>
 <div class="row">
@@ -64,21 +61,41 @@
     </form>
 </div>
 <div class="row">
-    <div class="input-field col s12 m4">
-            <select class="" ng-model="type">
-              <option value="" disabled selected>Type of encounter</option>
-              <option value="website">Website</option>
-              <option value="telephone">Telephone</option>
-              <option value="out">Out-patient</option>
-              <option value="in">In-patient</option>
-              <option value="other">Other</option>
-            </select>
-            <label>Type of encounter</label>
-          </div>
-    <div class="input-field col m8 s12">
+    <div class="input-field col s12 m5">
+        <p>What was the nature of your healthcare encounter?</p>
+        <p>
+          <input name="type" type="radio" id="website" ng-model="websiteReset"/>
+          <label for="website">Website</label>
+        </p>
+        <p>
+          <input name="type" type="radio" id="telephone" />
+          <label for="telephone">Telephone</label>
+        </p>
+        <p>
+          <input name="type" type="radio" id="out" />
+          <label for="out">Out-patient</label>
+        </p>
+        <p>
+          <input name="type" type="radio" id="in" />
+          <label for="in">In-patient</label>
+        </p>
+        <p>
+          <input name="type" type="radio" id="other" />
+          <label for="other">Other</label>
+        </p>
+        <br />
+    <br />
+    </div>
+    <div class="input-field col m7 s12">
           <input id="hospital" type="text" class="" ng-model="hospital">
           <label for="hospital">Name of hospital or clinic</label>
-        </div>
+        <p>
+          <input type="checkbox" id="permission" class="filled-in" ng-model="permission"/>
+          <label for="permission">It's ok to post my story or portions of my story anonymously on this website.</label>
+        </p>
+            <br />
+    <br />
+    </div>
 </div>
 <div class="row">
     <div class="form-buttons">
@@ -88,5 +105,8 @@
         <i class="material-icons right">send</i>
       </button>
     </div>
+</div>
+<div class="row">
+    <p class="center" ng-show="showConfirm">Your experience has been submitted!</p>
 </div>
 </div>

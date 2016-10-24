@@ -99,3 +99,46 @@
 .story-field {
     height: 200px !important;
 }
+
+.profile-image {
+    border-radius: 50%;
+    width: 174px;
+    height: 174px;
+    margin-top: 16px;
+}
+
+.profile-text {
+    text-align: left;
+}
+
+.about-header {
+    padding-top: 32px;
+}
+
+.sub-caption {
+    text-align: center;
+    max-width: 700px;
+    margin: auto auto;
+    padding-bottom: 32px;
+    margin-top: 32px;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 32px 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-size: 18px;
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
