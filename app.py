@@ -69,7 +69,8 @@ def send_response():
 def home():
     resp = Response("")
     resp.headers['Access-Control-Allow-Origin'] = '*'
-    return redirect(url_for('static', filename='index.html'))
+    return app.send_static_file('index.html')
+    # return redirect(url_for('static', filename='index.html'))
 
 
 # -----------
