@@ -44,11 +44,11 @@ def take_input():
             "content": content['content']
         }
         db.mvp.insert_one(submission)
-        print("Recieved post request and inserted into the DB.")
+        logging.info("Recieved post request and inserted into the DB.")
         resp = Response(
             response="true", status=200,  mimetype="application/json")
     except:
-        print("Error: ", sys.exc_info()[0])
+        logging.info("Error: ", sys.exc_info()[0])
         status = sys.exc_info()[0]
         resp = Response(
             response=Status, status=200,  mimetype="application/json")
@@ -78,11 +78,11 @@ def home():
 # LET IT RUN!
 # -----------
 if __name__ == "__main__":
-    print(" ")
-    print("RRRRRR  UU   UU NN   NN NN   NN IIIII NN   NN   GGGG ")
-    print("RR   RR UU   UU NNN  NN NNN  NN  III  NNN  NN  GG  GG ")
-    print("RRRRRR  UU   UU NN N NN NN N NN  III  NN N NN GG      ")
-    print("RR  RR  UU   UU NN  NNN NN  NNN  III  NN  NNN GG   GG ")
-    print("RR   RR  UUUUU  NN   NN NN   NN IIIII NN   NN  GGGGGG ")
-    print(" ")
+    logging.info(" ")
+    logging.info("RRRRRR  UU   UU NN   NN NN   NN IIIII NN   NN   GGGG ")
+    logging.info("RR   RR UU   UU NNN  NN NNN  NN  III  NNN  NN  GG  GG ")
+    logging.info("RRRRRR  UU   UU NN N NN NN N NN  III  NN N NN GG      ")
+    logging.info("RR  RR  UU   UU NN  NNN NN  NNN  III  NN  NNN GG   GG ")
+    logging.info("RR   RR  UUUUU  NN   NN NN   NN IIIII NN   NN  GGGGGG ")
+    logging.info(" ")
     app.run(host='0.0.0.0', port=3000)
