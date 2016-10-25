@@ -36,14 +36,24 @@ def take_input():
     #        content: $scope.content,
     #        permission: $scope.permission
     # }
-    content = request.get_json(force=True)
+
+    # Default values for the POSTed data.
+    DEFAULT_VALUES = {
+        "hospital": "none",
+        "type": "In-Patient"
+        "content": "blah-blah",
+        "permission": "false"
+    }
+    # content = request.get_json(force=True)
     try:
-        submission = {
-            "hospital": content['hospital'],
-            "type": content['type'],
-            "content": content['content']
-        }
-        db.mvp.insert_one(submission)
+        DEFAULT_VALUES.copy().update(request.get_json(force=True))
+        # submission = {
+        #     "hospital": content['hospital'],
+        #     "type": content['type'],
+        #     "content": content['content'],
+        #     "permission": content['permission']
+        # }
+        db.mvp.insert_one(DEFAULT_VALUES)
         logging.info("Recieved post request and inserted into the DB.")
         resp = Response(
             response="true", status=200,  mimetype="application/json")
@@ -70,8 +80,7 @@ def send_response():
 def home():
     resp = Response("")
     resp.headers['Access-Control-Allow-Origin'] = '*'
-    return app.send_static_file('index.html')
-    # return redirect(url_for('static', filename='index.html'))
+    return redirect(url_for('static', filename='index.html'))
 
 
 # -----------
