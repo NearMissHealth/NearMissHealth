@@ -113,6 +113,7 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         $('select').material_select();
         $scope.content = null;
         $scope.permission = false;
+        document.typeRadios.type[5].checked=true;
         
     }
     
@@ -120,9 +121,15 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         
         $scope.showConfirm = false;
         
+        // Grab the radio buttons
+        var typeVal = $("input[name=type]:checked").val()
+        if(typeVal == "null"){
+            typeVal = null;
+        }
+        
         var data = { 
             hospital: $scope.hospital,
-            type: $scope.type,
+            type: typeVal,
             content: $scope.content,
             permission: $scope.permission
         };
@@ -135,7 +142,10 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
             $scope.clear();
             $('#submitModal').openModal();
             
-        })
+        });
+        
+        $scope.clear();
+        $('#submitModal').openModal();
         
     }
     
