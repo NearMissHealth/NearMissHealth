@@ -131,11 +131,11 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         
         var url = "/api/post_request";
         $http.post(url, data).then(function(res) {
-            console.log(res);
+            
+            $scope.clear();
+            $('#submitModal').openModal();
+            
         })
-        
-        console.log("Showing success")
-        $scope.showConfirm = true;
         
     }
     
