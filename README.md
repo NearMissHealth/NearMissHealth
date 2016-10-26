@@ -7,7 +7,8 @@ This is the front-end for the client portal such that they can submit user stori
 
 - `/api/post_request`
 	- You can POST anything, but the server is expecting something in this format so that it can be put into the DB.
-		```json
+		
+		```
 		{
             hospital: "some hospital",
             type: "in-patient",
