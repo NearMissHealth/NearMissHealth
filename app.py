@@ -4,6 +4,7 @@ import tempfile
 import json
 import sys
 from urllib.request import urlopen
+from wsgilog import log
 
 import requests
 
@@ -27,6 +28,7 @@ db = client.production
 # ----------------------------------
 
 
+@log(tohtml=True, tofile='wsgi.log', tostream=True, toprint=True)
 @app.route("/api/post_request", methods=['POST'])
 def take_input():
     # Sample POST:
