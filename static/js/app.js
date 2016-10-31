@@ -127,6 +127,19 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
             typeVal = null;
         }
         
+        if(!$scope.hospital) {
+            $scope.hospital = null
+        }
+        if(!$scope.content) {
+            $scope.content = null
+        }
+        if(!$scope.permission) {
+            $scope.permission = null
+        }
+        if(!$scope.type) {
+            $scope.type = null
+        }
+        
         var data = { 
             hospital: $scope.hospital,
             type: typeVal,
@@ -136,7 +149,7 @@ app.controller('HomeController', function($scope, $location, $anchorScroll, $htt
         
         console.log(data);
         
-        var url = "/api/post_request";
+        var url = "https://nearmisshealth.com/api/post_request";
         $http.post(url, data).then(function(res) {
             
             $scope.clear();
