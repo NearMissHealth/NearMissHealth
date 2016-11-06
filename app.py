@@ -96,6 +96,6 @@ if __name__ == "__main__":
     logging.info("RRRRRR  UU   UU NN N NN NN N NN  III  NN N NN GG      ")
     logging.info("RR  RR  UU   UU NN  NNN NN  NNN  III  NN  NNN GG   GG ")
     logging.info("RR   RR  UUUUU  NN   NN NN   NN IIIII NN   NN  GGGGGG ")
-    logging.info("Began running at: ", str(datetime.now())
+    logging.info("Began running at: ", str(datetime.now()))
     logging.info(" ")
     app.run(host='0.0.0.0', port=3000)
